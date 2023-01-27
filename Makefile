@@ -1,8 +1,9 @@
-
 SERVICES := $(wildcard cmd/service-*)
-all: create-20 $(SERVICES)
 
-.PHONY: all $(SERVICES)
+.PHONY: all
+all: clean create-20 $(SERVICES)
+
+.PHONY: $(SERVICES)
 $(SERVICES):
 	@echo "build $@"
 	@$(MAKE) -C $@
@@ -13,10 +14,10 @@ skaffold:
 	skaffold -vdebug build -p dev
 
 
+# To add another service, also add it to skaffold.yaml top level.
 .PHONY: create-20
-create-20:
-	echo "create-20"
-	@rm -rf cmd
+create-20: clean
+	echo "creating 20 services"
 
 	@for n in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do \
 	 	mkdir -p cmd/service-$$n ; \
@@ -25,3 +26,8 @@ create-20:
 	 	sed "s/{{Number}}/$$n/g" service-tmpl/main.go.tmpl > cmd/service-$$n/main.go ; \
 	 	sed "s/{{Number}}/$$n/g" service-tmpl/skaffold.yaml.tmpl > cmd/service-$$n/skaffold.yaml ; \
 	done
+
+.PHONY: clean
+clean:
+	@echo cleaning...
+	@rm -rf cmd
