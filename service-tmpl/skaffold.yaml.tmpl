@@ -1,0 +1,16 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: service-{{Number}}
+profiles:
+  - name: dev
+    build:
+      tagPolicy:
+        inputDigest: {}
+      artifacts:
+        - image: example.repo/service-{{Number}}
+          docker:
+            dockerfile: Dockerfile
+    deploy:
+      kubectl: {}
+

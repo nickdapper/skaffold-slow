@@ -1,0 +1,25 @@
+apiVersion: skaffold/v3
+kind: Config
+requires:
+  - path: cmd/service-1/skaffold.yaml
+  - path: cmd/service-2/skaffold.yaml
+  - path: cmd/service-3/skaffold.yaml
+  - path: cmd/service-4/skaffold.yaml
+  - path: cmd/service-5/skaffold.yaml
+  - path: cmd/service-6/skaffold.yaml
+  - path: cmd/service-7/skaffold.yaml
+  - path: cmd/service-8/skaffold.yaml
+  - path: cmd/service-9/skaffold.yaml
+  - path: cmd/service-10/skaffold.yaml
+  - path: cmd/service-11/skaffold.yaml
+  - path: cmd/service-12/skaffold.yaml
+  - path: cmd/service-13/skaffold.yaml
+  - path: cmd/service-14/skaffold.yaml
+  - path: cmd/service-15/skaffold.yaml
+  - path: cmd/service-16/skaffold.yaml
+  - path: cmd/service-17/skaffold.yaml
+  - path: cmd/service-18/skaffold.yaml
+  - path: cmd/service-19/skaffold.yaml
+  - path: cmd/service-20/skaffold.yaml
+metadata:
+  name: skaffold-slow
